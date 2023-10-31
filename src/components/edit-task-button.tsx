@@ -60,7 +60,7 @@ export function EditTaskButton({
           <DialogHeader>
             <DialogTitle>Edit this task</DialogTitle>
             <DialogDescription>
-              Make changes to this task's description.
+              Make changes to this task&#39;s description.
             </DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
