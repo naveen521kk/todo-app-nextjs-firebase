@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { DisplayTask } from "@/components/display-task";
+import { cn } from "@/lib/utils";
 
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 import { auth } from "@/firebase/index";
+import { signOut } from "@/firebase/auth";
 import { createTask, getTasksByUserId } from "@/firebase/tasks";
 import { onAuthStateChanged } from "firebase/auth";
 import type { Task } from "@/firebase/tasks";
@@ -63,6 +66,16 @@ export default function TodoApp() {
 
   return (
     <>
+      <Link
+        href="/login"
+        className={cn(
+          buttonVariants({ variant: "ghost" }),
+          "absolute right-4 top-4 md:right-8 md:top-8",
+        )}
+        onClick={async () => {await signOut()}}
+      >
+        Logout
+      </Link>
       <div className="mx-auto my-10 min-h-[400px] max-w-4xl p-5 shadow-lg">
         <h1 className="scroll-m-20 pb-2 text-center text-3xl font-semibold tracking-tight first:mt-0">
           What needs to be done?

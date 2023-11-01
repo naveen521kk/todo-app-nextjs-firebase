@@ -24,12 +24,11 @@ export async function signIn(email: string, password: string) {
   }
 }
 
-export async function getUser() {
-    try {
-        const user = auth.currentUser;
-        return user;
-    } catch (error: any) {
-        console.log(error);
-        throw new Error(error.message);
-    }
+export async function signOut() {
+  try {
+    await auth.signOut();
+  } catch (error: any) {
+    console.log(error);
+    throw new Error(error.message);
+  }
 }
